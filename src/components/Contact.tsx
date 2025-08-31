@@ -47,8 +47,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      detail: "+91 9988776655",
-      action: "tel:+919988776655",
+      detail: "+91 9741897772",
+      action: "tel:+919741897772",
       description: "Available 9 AM - 7 PM"
     },
     {
