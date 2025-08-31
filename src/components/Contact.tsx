@@ -54,21 +54,21 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      detail: "+91 9988776655",
-      action: "https://wa.me/919988776655",
+      detail: "+91 9741897772",
+      action: "https://wa.me/919741897772",
       description: "Quick responses on WhatsApp"
     },
     {
       icon: Mail,
       title: "Email Us",
-      detail: "info@kgnconstruction.com",
+      detail: "mdkaifdoddamani@gmail.com",
       action: "mailto:info@kgnconstruction.com",
       description: "We'll respond within 24 hours"
     },
     {
       icon: MapPin,
       title: "Visit Office",
-      detail: "Bangalore, Karnataka",
+      detail: "Ranebennur, Karnataka",
       action: "#",
       description: "Schedule an appointment"
     }
