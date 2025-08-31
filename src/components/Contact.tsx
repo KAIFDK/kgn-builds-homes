@@ -47,15 +47,15 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      detail: "+91 9988776655",
-      action: "tel:+919988776655",
+      detail: "+91 9876543210",
+      action: "tel:+919876543210",
       description: "Available 9 AM - 7 PM"
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      detail: "+91 9988776655",
-      action: "https://wa.me/919988776655",
+      detail: "+91 9876543210",
+      action: "https://wa.me/919876543210",
       description: "Quick responses on WhatsApp"
     },
     {
@@ -265,7 +265,7 @@ const Contact = () => {
                       variant="construction" 
                       size="lg"
                       className="flex-1"
-                      onClick={() => window.open('https://wa.me/919988776655', '_blank')}
+                      onClick={() => window.open('https://wa.me/919876543210', '_blank')}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp Chat
