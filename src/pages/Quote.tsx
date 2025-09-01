@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { CheckCircle } from 'lucide-react';
 import Header from '@/components/Header';
+import { supabase } from '@/integrations/supabase/client';
 
 const Quote = () => {
   const { toast } = useToast();
@@ -21,12 +22,13 @@ const Quote = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate required fields
@@ -39,14 +41,63 @@ const Quote = () => {
       return;
     }
 
-    // Print form data to console (will be replaced with backend integration later)
-    console.log('Quote Form Data:', formData);
-    
-    setIsSubmitted(true);
-    toast({
-      title: "Quote Request Submitted!",
-      description: "We'll get back to you within 24 hours with a detailed quote.",
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Save to database
+      const { data, error } = await supabase
+        .from('quotes')
+        .insert([
+          {
+            full_name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            project_type: formData.projectType,
+            location: formData.location || null,
+            budget: formData.budget || null,
+            message: formData.message || null
+          }
+        ])
+        .select();
+
+      if (error) {
+        console.error('Error saving quote:', error);
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting your quote. Please try again.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      console.log('Quote saved successfully:', data);
+      setIsSubmitted(true);
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll get back to you within 24 hours with a detailed quote.",
+      });
+
+      // Reset form for next submission
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        projectType: '',
+        location: '',
+        budget: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -201,15 +252,21 @@ const Quote = () => {
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-4">
-                    <Button type="submit" variant="hero" size="lg" className="w-full">
-                      Submit Quote Request
-                    </Button>
-                    <p className="text-sm text-construction-grey-medium text-center mt-3">
-                      We'll review your request and get back to you within 24 hours.
-                    </p>
-                  </div>
+                   {/* Submit Button */}
+                   <div className="pt-4">
+                     <Button 
+                       type="submit" 
+                       variant="hero" 
+                       size="lg" 
+                       className="w-full"
+                       disabled={isSubmitting}
+                     >
+                       {isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
+                     </Button>
+                     <p className="text-sm text-construction-grey-medium text-center mt-3">
+                       We'll review your request and get back to you within 24 hours.
+                     </p>
+                   </div>
                 </form>
               </CardContent>
             </Card>
