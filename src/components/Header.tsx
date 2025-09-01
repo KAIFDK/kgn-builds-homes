@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigation = [{
@@ -38,9 +39,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="sm">
-              Get Quote
-            </Button>
+            <Link to="/quote">
+              <Button variant="hero" size="sm">
+                Get Quote
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -59,9 +62,11 @@ const Header = () => {
                 {item.name}
               </a>)}
             <div className="px-3 py-2">
-              <Button variant="hero" size="sm" className="w-full">
-                Get Quote
-              </Button>
+              <Link to="/quote">
+                <Button variant="hero" size="sm" className="w-full">
+                  Get Quote
+                </Button>
+              </Link>
             </div>
           </div>
         </div>}
