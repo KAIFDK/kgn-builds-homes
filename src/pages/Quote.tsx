@@ -6,8 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
 import Header from '@/components/Header';
 
 const Quote = () => {
@@ -70,13 +69,7 @@ const Quote = () => {
                     <p className="text-sm text-construction-grey-medium">
                       Reference: {Date.now()}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Link to="/">
-                        <Button variant="hero">
-                          <ArrowLeft className="mr-2 h-4 w-4" />
-                          Back to Home
-                        </Button>
-                      </Link>
+                    <div className="flex justify-center">
                       <Button 
                         variant="outline" 
                         onClick={() => setIsSubmitted(false)}
@@ -102,10 +95,6 @@ const Quote = () => {
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <Link to="/" className="inline-flex items-center text-construction-blue hover:text-construction-blue-dark mb-4 transition-colors">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Link>
               <h1 className="text-4xl font-bold text-construction-grey-dark mb-4">
                 Get Your Free Quote
               </h1>
