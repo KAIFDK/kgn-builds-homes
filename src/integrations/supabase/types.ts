@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      quotes: {
+        Row: {
+          budget: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          location: string | null
+          message: string | null
+          phone: string
+          project_type: string
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          budget?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          location?: string | null
+          message?: string | null
+          phone: string
+          project_type: string
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          budget?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          location?: string | null
+          message?: string | null
+          phone?: string
+          project_type?: string
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       "Ready Houses": {
         Row: {
           id: number
