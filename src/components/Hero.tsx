@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Calendar } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import constructionHero from '@/assets/construction-hero.jpg';
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -45,7 +47,12 @@ const Hero = () => {
                 View Our Projects
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="construction" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-construction-blue">
+              <Button 
+                variant="construction" 
+                size="lg" 
+                className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-construction-blue"
+                onClick={() => navigate('/quote')}
+              >
                 Get Free Quote
               </Button>
             </div>
