@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { GraduationCap, Building2, Award, Target } from 'lucide-react';
+import { GraduationCap, Building2, Award, Target, Download } from 'lucide-react';
 
 const About = () => {
   const achievements = [
@@ -26,6 +26,60 @@ const About = () => {
       description: "100% customer satisfaction with personalized service approach"
     }
   ];
+
+  const handleDownloadPortfolio = () => {
+    // Create a portfolio document with company information
+    const portfolioContent = `
+KGN CONSTRUCTION PORTFOLIO
+==========================
+
+Company: KGN Construction
+Engineer: MD Suhail Doddamani
+Contact: +91 XXXXX XXXXX
+Email: info@kgnconstruction.com
+
+ABOUT US
+--------
+With over 5 years of experience in civil engineering and construction, we specialize in creating custom homes that reflect our clients' vision while ensuring structural integrity and long-lasting quality.
+
+Our approach combines traditional construction methods with modern engineering principles, resulting in homes that are not only beautiful but also energy-efficient and built to last generations.
+
+SERVICES
+--------
+• Residential Construction
+• Commercial Construction  
+• Renovation & Remodeling
+• Civil Engineering Design
+• 2D & 3D Design Concepts
+• Project Management
+
+ACHIEVEMENTS
+------------
+• 50+ Houses Built
+• 100+ Happy Clients
+• 5+ Years Experience
+• 100% Customer Satisfaction
+
+SPECIALIZATIONS
+---------------
+• Civil Engineer - Professional civil engineering degree with specialization in structural design
+• House Builder - Expert in residential construction with focus on quality and durability
+• Quality Focused - Committed to delivering superior quality in every project
+• Client Satisfaction - 100% customer satisfaction with personalized service approach
+
+Contact us today for your construction needs!
+    `;
+
+    const blob = new Blob([portfolioContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'KGN-Construction-Portfolio.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
 
   return (
     <section id="about" className="py-20 gradient-section">
@@ -58,7 +112,8 @@ const About = () => {
                 </p>
               </div>
 
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={handleDownloadPortfolio} className="group">
+                <Download className="w-4 h-4 mr-2 group-hover:translate-y-[-2px] transition-transform" />
                 Download Portfolio
               </Button>
             </div>
