@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      custom_projects: {
+        Row: {
+          bathrooms: string | null
+          bedrooms: string | null
+          budget: string | null
+          created_at: string
+          email: string
+          floors: string | null
+          full_name: string
+          has_plot: string | null
+          id: string
+          phone: string
+          plot_size: string | null
+          preferred_style: string | null
+          project_location: string
+          property_type: string | null
+          special_requirements: string | null
+          status: string | null
+          timeline: string | null
+          updated_at: string
+        }
+        Insert: {
+          bathrooms?: string | null
+          bedrooms?: string | null
+          budget?: string | null
+          created_at?: string
+          email: string
+          floors?: string | null
+          full_name: string
+          has_plot?: string | null
+          id?: string
+          phone: string
+          plot_size?: string | null
+          preferred_style?: string | null
+          project_location: string
+          property_type?: string | null
+          special_requirements?: string | null
+          status?: string | null
+          timeline?: string | null
+          updated_at?: string
+        }
+        Update: {
+          bathrooms?: string | null
+          bedrooms?: string | null
+          budget?: string | null
+          created_at?: string
+          email?: string
+          floors?: string | null
+          full_name?: string
+          has_plot?: string | null
+          id?: string
+          phone?: string
+          plot_size?: string | null
+          preferred_style?: string | null
+          project_location?: string
+          property_type?: string | null
+          special_requirements?: string | null
+          status?: string | null
+          timeline?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       quotes: {
         Row: {
           budget: string | null
@@ -53,30 +116,6 @@ export type Database = {
           project_type?: string
           status?: string | null
           updated_at?: string
-        }
-        Relationships: []
-      }
-      "Ready Houses": {
-        Row: {
-          id: number
-          Location: string
-          Name: string
-          Price: number
-          Status: string
-        }
-        Insert: {
-          id?: number
-          Location: string
-          Name: string
-          Price: number
-          Status: string
-        }
-        Update: {
-          id?: number
-          Location?: string
-          Name?: string
-          Price?: number
-          Status?: string
         }
         Relationships: []
       }

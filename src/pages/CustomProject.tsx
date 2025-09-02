@@ -51,8 +51,8 @@ const CustomProject = () => {
     setIsSubmitting(true);
 
     try {
-      // Save to database
-      const { data, error } = await supabase
+      // Save to database (using type assertion until types are updated)
+      const { data, error } = await (supabase as any)
         .from('custom_projects')
         .insert([
           {
