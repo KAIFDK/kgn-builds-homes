@@ -3,8 +3,10 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Bed, Bath, Car, Ruler, IndianRupee, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ReadyHouses = () => {
+  const navigate = useNavigate();
   // Sample ready-to-sell houses data
   const houses = [
     {
@@ -180,7 +182,7 @@ const ReadyHouses = () => {
               <p className="text-construction-grey mb-6 max-w-2xl mx-auto">
                 Can't find the perfect house? We specialize in custom home construction tailored to your specific needs and preferences.
               </p>
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={() => navigate('/custom-project')}>
                 Discuss Custom Project
               </Button>
             </div>
