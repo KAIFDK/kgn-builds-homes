@@ -17,7 +17,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+          <source src="src/assets/Asad khan.mp4" type="video/mp4" />
           <img
             src={constructionHero}
             alt="KGN Construction - Professional house construction"
