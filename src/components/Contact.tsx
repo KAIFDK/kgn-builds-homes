@@ -265,7 +265,7 @@ const Contact = () => {
                       variant="construction" 
                       size="lg"
                       className="flex-1"
-                      onClick={() => window.open('https://wa.me/919988776655', '_blank')}
+                      onClick={() => window.open('https://wa.me/919741897772', '_blank')}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp Chat
