@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Calendar } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import constructionHero from '@/assets/construction-hero.jpg';
+import constructionVideo from '@/assets/Asadkhan.mp4';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="src/assets/Asad khan.mp4" type="video/mp4" />
+          <source src={constructionVideo} type="video/mp4" />
           <img
             src={constructionHero}
             alt="KGN Construction - Professional house construction"
