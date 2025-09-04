@@ -49,6 +49,20 @@ const Contact = () => {
         description: "Thank you for contacting us. We'll get back to you within 24 hours.",
       });
       
+      // Send WhatsApp notification to admin
+      const adminWhatsAppMessage = `🔔 New Contact Form Submission
+
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📱 Phone: ${formData.phone}
+📝 Subject: ${formData.subject || 'No subject'}
+💬 Message: ${formData.message}
+
+Please respond to this inquiry as soon as possible.`;
+
+      const adminWhatsAppUrl = `https://wa.me/919741897772?text=${encodeURIComponent(adminWhatsAppMessage)}`;
+      window.open(adminWhatsAppUrl, '_blank');
+      
       // Reset form
       setFormData({
         name: '',
