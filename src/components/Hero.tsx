@@ -8,13 +8,22 @@ const Hero = () => {
   const navigate = useNavigate();
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={constructionHero}
-          alt="KGN Construction - Professional house construction"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+          <img
+            src={constructionHero}
+            alt="KGN Construction - Professional house construction"
+            className="w-full h-full object-cover"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-construction-blue-dark/80 via-construction-blue/60 to-transparent"></div>
       </div>
 
