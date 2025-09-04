@@ -18,7 +18,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={constructionVideo} type="video/mp4" />
+          <source src="src/assets/AsadKhan.mp4" type="video/mp4" />
           <img
             src={constructionHero}
             alt="KGN Construction - Professional house construction"
